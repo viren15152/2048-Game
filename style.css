@@ -12,6 +12,10 @@ h1 {
     margin: 0;
 }
 
+p, h2 {
+    margin: 0;
+}
+
 .container {
     width: 468px;
     margin-top: 30px;
@@ -30,4 +34,21 @@ h1 {
     border: 7px solid #BBADA0;
     border-radius: 6px;
     margin-top: 20px;
+}
+
+.score-container {
+    text-align: center;
+    width: 70px;
+    height: 60px;
+    border-radius: 3px;
+    background-color: #8f7a66;
+    color: #FFF;
+}
+
+#score {
+    font-size: 30px;
+}
+
+.score-title {
+    font-size: 16px;
 }
