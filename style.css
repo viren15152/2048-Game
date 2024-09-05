@@ -28,12 +28,27 @@ p, h2 {
 }
 
 .grid {
+    display: flex;
+    flex-wrap: wrap;
     width: 456px;
     height: 456px;
     background-color: #BBADA0;
     border: 7px solid #BBADA0;
     border-radius: 6px;
     margin-top: 20px;
+}
+
+.grid div {
+    width: 100px;
+    height: 100px;
+    margin: 7px;
+    border-radius: 3px;
+    background-color: #eee4da;
+    color: #AFA192;
+    font-weight: bold;
+    text-align: center;
+    font-size: 60px;
+    line-height: 1.6;
 }
 
 .score-container {
