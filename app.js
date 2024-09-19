@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         }
-        //checkForWin()
+        checkForWin()
     }
 
     //assign function to keys 
@@ -184,6 +184,17 @@ document.addEventListener('DOMContentLoaded', () => {
         combineColumn()
         moveDown()
         generate()
+    }
+
+    //check for the number 2048 in the squares to win
+    function checkForWin() {
+        for (let i =0; i < squares.length; i++) {
+            if (squares[i].innerHTML == 2048) {
+                resultDisplay.innerHTML = 'YOU WIN !!!'
+                document.removeEventListener('keydown', control)
+
+            }
+        }
     }
 })
 
