@@ -196,6 +196,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    //check if there are no zeros on the board to lose
+    function checkForGameOver() {
+        let zeros = 0
+        for (let i = 0; i < squares.length; i ++) {
+            if (sqaures[i].innterHTML == 0) {
+                zeros++
+            }
+        }
+        if (zeros === 0) {
+            resultDisplay.innerHTML = 'You LOSE'
+            document.removeEventListener('keydown', control)
+        }
+    }
 })
 
 
