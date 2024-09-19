@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomNumber = Math.floor(Math.random() * squares.length)
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
-            //checkForGameOver()
+            checkForGameOver()
         } else generate()
     }
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function  combineRow() {
+    function combineRow() {
         for (let i = 0; i < 15; i++) {
             if (squares[i].innerHTML === squares[i+1].innerHTML) {
                 let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i+1].innerHTML)
@@ -95,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
             keyLeft()
         } else if (e.key === 'ArrowRight') {
             keyRight()
+        } else if (e.key === 'ArrowUp') {
+            keyUp()
+        } else if (e.key === 'ArrowDown') {
+            keyDown()
         }
     }
     document.addEventListener('keydown', control)
@@ -112,6 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
         moveRight()
         generate()
     }
+
+    function keyUp() {
+        moveUp()
+        conmbineColumn()
+        moveUp()
+        generate()
+    }
+
+    // function keyDown() {
+    //     moveDown()
+    //     conmbineColumn()
+    //     moveDown()
+    //     generate()
+    // }
 })
 
 
