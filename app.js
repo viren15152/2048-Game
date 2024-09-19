@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomNumber = Math.floor(Math.random() * squares.length)
         if (squares[randomNumber].innerHTML == 0) {
             squares[randomNumber].innerHTML = 2
-            checkForGameOver()
+            //checkForGameOver()
         } else generate()
     }
 
@@ -94,6 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function moveDown() {
+        for (let i = 0; i < 4; i++) {
+            let totalOne = squares[i].innerHTML
+            let totalTwo = squares[i+width].innerHTML
+            let totalThree = squares[i+width*2].innerHTML
+            let totalFour = squares[i+width*3].innerHTML
+            let column = [parseInt(totalOne), parseInt(totalTwo), parseInt(totalThree), parseInt(totalFour)]
+
+            let filteredColumn = column.filter(num => num)
+            let missing = 4 - filteredColumn.length
+            let zeros = Array(missing).fill(0)
+            let newColumn = zeros.concat(filteredColumn)
+
+            squares[i].innerHTML = newColumn[0]
+            squares[i+width].innerHTML = newColumn[1]
+            squares[i+width*2].innerHTML = newColumn[2]
+            squares[i+width*3].innerHTML = newColumn[3] 
+        }
+    }
+
     function combineRow() {
         for (let i = 0; i < 15; i++) {
             if (squares[i].innerHTML === squares[i+1].innerHTML) {
@@ -133,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.key === 'ArrowUp') {
             keyUp()
         } else if (e.key === 'ArrowDown') {
-            //keyDown()
+            keyDown()
         }
     }
     document.addEventListener('keydown', control)
@@ -154,17 +174,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function keyUp() {
         moveUp()
-        //conmbineColumn()
+        combineColumn()
         moveUp()
         generate()
     }
 
-    // function keyDown() {
-    //     moveDown()
-    //     conmbineColumn()
-    //     moveDown()
-    //     generate()
-    // }
+    function keyDown() {
+        moveDown()
+        combineColumn()
+        moveDown()
+        generate()
+    }
 })
 
 
